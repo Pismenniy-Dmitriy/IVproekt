@@ -60,6 +60,7 @@ namespace IOTProjectt
             }
         }
 
+        [Obsolete]
         public static async void TakeVideoAsync(object sender, EventArgs e)
         {
                 try
@@ -73,7 +74,11 @@ namespace IOTProjectt
                     using (var stream = await video.OpenReadAsync())
                     using (var newStream = File.OpenWrite(newFile))
                         await stream.CopyToAsync(newStream);
-                    
+
+                    if(newFile != null)
+                {
+                    Device.OpenUri(new Uri("https://www.google.al/intl/ru/drive/"));
+                }
                 }
                 catch (Exception ex)
                 {
@@ -83,5 +88,5 @@ namespace IOTProjectt
         
 
     }
-    
+
 }
