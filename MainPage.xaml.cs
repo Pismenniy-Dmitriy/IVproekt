@@ -24,6 +24,7 @@ namespace IOTProjectt
     public static class GlobalVariables
     {
         public static bool Shake = false;
+        public static bool IsEnd = false;
     }
 
     public class DetectShakeTest
@@ -78,6 +79,7 @@ namespace IOTProjectt
                     if(newFile != null)
                 {
                     Device.OpenUri(new Uri("https://www.google.al/intl/ru/drive/"));
+                    GlobalVariables.IsEnd = true;
                 }
                 }
                 catch (Exception ex)
